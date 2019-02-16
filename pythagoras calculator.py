@@ -23,6 +23,8 @@ def hypcalc():
     
 
 def rightangled():
+    print("This figures out if the triangle is right-angled based on the numbers entered")
+    time.sleep(0.5)
     print("\nPlease enter one of the sides (cm)")
     side1 = float(input())
 
@@ -57,9 +59,11 @@ def rightangled():
 
 
 def spareside():
-    print("Please enter the hypotenuse (cm)")
+    print("This calculated the missing side of a triangle")
+    time.sleep(0.5)
+    print("\nPlease enter the hypotenuse (cm)")
     side1 = int(input())
-    print("Please enter the other side (cm)")
+    print("\nPlease enter the other side (cm)")
     side2 = int(input())
 
     sides = [side1, side2]
@@ -78,9 +82,11 @@ def spareside():
     print("\nThe spare side is " + str(float(spare)) + " cm")
 
 print("What would you like to run?")
-print("1. Hypotenuse calculator")
-print("2. Right-angle verifier")
-print("3. Remaining side calculator\n")
+print("---------------------------------")
+print("| 1. Hypotenuse calculator      |")
+print("| 2. Right-angle verifier       |")
+print("| 3. Remaining side calculator  |")
+print("---------------------------------\n")
 choice = input()
 
 if choice == "1":
