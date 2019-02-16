@@ -5,10 +5,26 @@ import math
 def hypcalc():
     print("\nThis calculates the hypotenuse of a right-angled triangle")
     time.sleep(0.5)
-    print("\nEnter one of the sides (cm)")
-    side1 = float(input())
-    print("\nEnter the other side (cm)")
-    side2 = float(input())
+    while True:
+        try:
+            print("\nEnter the first side (cm)")
+            side1 = float(input())
+
+        except ValueError:
+            print("You didn't enter a valid resonse, please try again")
+            time.sleep(0.5)
+            continue
+            
+        try:
+            print("\nEnter the second side (cm)")
+            side2 = float(input())
+        except ValueError:
+            print("You didn't enter a valid resonse, please try again")
+            time.sleep(0.5)
+            continue
+
+
+
 
     side1sqrd = math.pow(side1, 2)
 
@@ -25,14 +41,35 @@ def hypcalc():
 def rightangled():
     print("This figures out if the triangle is right-angled based on the numbers entered")
     time.sleep(0.5)
-    print("\nPlease enter one of the sides (cm)")
-    side1 = float(input())
+    while True:
+        try:
+            print("\nPlease enter the first side (cm)")
+            side1 = float(input())
 
-    print("\nPlease enter another side (cm)")
-    side2 = float(input())
+        except ValueError:
+            print("You didn't enter a valid response, please try again")
+            time.sleep(0.5)
+            continue
+        
 
-    print("\nPlease enter the final side (cm)")
-    side3 = float(input())
+        try:
+            print("\nPlease enter the second side (cm)")
+            side2 = float(input())
+            
+        except ValueError:
+            print("You didn't enter a valid response, please try again")
+            time.sleep(0.5)
+            continue
+        
+
+        try:
+            print("\nPlease enter the third side (cm)")
+            side3 = float(input())
+
+        except ValueError:
+            print("You didn't enter a valid response, please try again")
+            time.sleep(0.5)
+            continue
 
     sides = [side1, side2, side3]
     sides.sort()
@@ -81,20 +118,51 @@ def spareside():
 
     print("\nThe spare side is " + str(float(spare)) + " cm")
 
-print("What would you like to run?")
-print("---------------------------------")
-print("| 1. Hypotenuse calculator      |")
-print("| 2. Right-angle verifier       |")
-print("| 3. Remaining side calculator  |")
-print("---------------------------------\n")
-choice = input()
 
-if choice == "1":
-    hypcalc()
+def menu():
 
-elif choice == "2":
-    rightangled()
+    
 
-elif choice == "3":
-    spareside()
+    print("What would you like to run?")
+    print("---------------------------------")
+    print("| 1. Hypotenuse calculator      |")
+    print("| 2. Right-angle verifier       |")
+    print("| 3. Remaining side calculator  |")
+    print("---------------------------------\n")
+
+    choice = input()
+
+    if choice == "1":
+        hypcalc()
+
+    elif choice == "2":
+        rightangled()
+
+    elif choice == "3":
+        spareside()
+            
+    choicelist = ["1", "2", "3"]
+    while choice not in choicelist:
+
+        
+        print("What would you like to run?")
+        print("---------------------------------")
+        print("| 1. Hypotenuse calculator      |")
+        print("| 2. Right-angle verifier       |")
+        print("| 3. Remaining side calculator  |")
+        print("---------------------------------\n")
+        
+        choice = input()
+
+        if choice == "1":
+            hypcalc()
+
+        elif choice == "2":
+            rightangled()
+
+        elif choice == "3":
+            spareside()
+
+    
+menu()  
 
