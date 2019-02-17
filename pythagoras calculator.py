@@ -15,7 +15,7 @@ def playagain():
 
         except ValueError:
             print("\nWould you like to use this again? (Y/N)")
-            useAgain == input()
+            useAgain = input()
             continue
 
 #The first calculator
