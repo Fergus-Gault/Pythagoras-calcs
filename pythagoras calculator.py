@@ -2,6 +2,25 @@ import time
 import math
 
 
+#Play again feature
+def playagain():
+        while True:
+            try:
+                print("\nWould you like to use this again? (Y/N)")
+                useAgain = input().lower()
+                if useAgain == "y":
+                    menu()
+
+                elif useAgain == "n":
+                    exit()
+
+            except ValueError:
+                print("\nWould you like to use this again? (Y/N)")
+                useAgain == input()
+                continue
+
+
+#The first calculator
 def hypcalc():
     print("\nThis calculates the hypotenuse of a right-angled triangle")
     time.sleep(0.5)
@@ -14,17 +33,19 @@ def hypcalc():
             print("You didn't enter a valid resonse, please try again")
             time.sleep(0.5)
             continue
-            
+        
         try:
             print("\nEnter the second side (cm)")
             side2 = float(input())
+            
         except ValueError:
             print("You didn't enter a valid resonse, please try again")
             time.sleep(0.5)
             continue
+        else:
+            break
 
-
-
+    #Maths formula    
 
     side1sqrd = math.pow(side1, 2)
 
@@ -36,8 +57,10 @@ def hypcalc():
 
     print("\nThe hypotenuse is " + str(float(hyp)) + " cm")
 
-    
+    playagain()
 
+
+#Second Calculator
 def rightangled():
     print("This figures out if the triangle is right-angled based on the numbers entered")
     time.sleep(0.5)
@@ -71,6 +94,10 @@ def rightangled():
             time.sleep(0.5)
             continue
 
+        else:
+            break
+
+    #Maths formula
     sides = [side1, side2, side3]
     sides.sort()
 
@@ -93,8 +120,9 @@ def rightangled():
     else:
         print("This is not a right-angled triangle")
 
+    playagain()
 
-
+#Third Calculator
 def spareside():
     print("This calculated the missing side of a triangle")
     time.sleep(0.5)
@@ -109,6 +137,7 @@ def spareside():
     hyp = sides[1]
     other = sides[0]
 
+    #Maths formula
     hypsqrd = math.pow(hyp, 2)
     othersqrd = math.pow(other, 2)
 
@@ -118,7 +147,9 @@ def spareside():
 
     print("\nThe spare side is " + str(float(spare)) + " cm")
 
+    playagain()
 
+#Menu
 def menu():
 
     
@@ -162,7 +193,6 @@ def menu():
 
         elif choice == "3":
             spareside()
-
+    playagain()
     
 menu()  
-
