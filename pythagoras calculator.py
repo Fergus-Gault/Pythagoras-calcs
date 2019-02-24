@@ -15,7 +15,7 @@ def playagain():
 
         except ValueError:
             print("\nWould you like to use this again? (Y/N)")
-            useAgain = input()
+            useAgain == input()
             continue
 
 #The first calculator
@@ -146,10 +146,8 @@ def spareside():
 
     playagain()
 
-
-#Fourth calculator
 def anglecalc():
-    
+
     print("This calculates the angle of a triangle")
     time.sleep(0.5)
     formulas = ["Sin", "Cos", "Tan"]
@@ -160,7 +158,7 @@ def anglecalc():
         except ValueError:
             print("Please enter a valid response")
             formula = input().lower()
-            
+
         if formula == "sin":
             while True:
                 try:
@@ -168,7 +166,7 @@ def anglecalc():
                     opp = float(input())
 
                 except ValueError:
-                    print("\nYou didn't enter a valid response, please try again")
+                    print("\nYou did not enter a valid response, please try again")
                     time.sleep(0.5)
                     continue
 
@@ -178,12 +176,13 @@ def anglecalc():
                     hyp = float(input())
 
                 except ValueError:
-                    print("You didn't enter a valid response, please try again")
+                    print("You did not enter a valid response, please try again")
                     time.sleep(0.5)
                     continue
 
                 else:
                     break
+
 
             #Maths formula
             order = [opp, hyp]
@@ -191,12 +190,15 @@ def anglecalc():
 
             opp = order[0]
             hyp = order[1]
-
+            
             ans1 = (opp/hyp)
 
             ans = math.degrees(math.asin(ans1))
 
-            print("The angle you are looking for is " + str(ans) + "°")
+
+            print("The angle you are looking for is " + str(ans) + "°\n")
+
+            playagain()
 
 
         elif formula == "cos":
@@ -207,23 +209,23 @@ def anglecalc():
                     adj = float(input())
 
                 except ValueError:
-                    print("\nYou didn't enter a valid response, please try again")
+                    print("\nYou did not enter a valid response, please try again")
                     time.sleep(0.5)
                     continue
 
-
                 try:
-                    print("\nPlease enter the hypotenuse (cm)")
+                    print("\nPlease enter the hypotenuse")
                     hyp = float(input())
 
                 except ValueError:
-                    print("You didn't enter a valid response, please try again")
+                    print("\nYou did not enter a valid response, please try again")
                     time.sleep(0.5)
                     continue
 
                 else:
                     break
-                           
+
+
             #Maths formula
             order = [adj, hyp]
             order.sort()
@@ -233,11 +235,12 @@ def anglecalc():
 
             ans1 = (adj/hyp)
 
-            ans = maths.degrees(maths.acos(ans1))
+            ans = math.degrees(math.acos(ans1))
 
-            print("The angle you are looking for is " + str(ans) + "°")
+            print("The angle you are looking for is " + str(ans) + "°\n")
 
-            
+            playagain()
+
         elif formula == "tan":
             while True:
                 try:
@@ -245,24 +248,23 @@ def anglecalc():
                     opp = float(input())
 
                 except ValueError:
-                    print("\nYou didn't enter a valid response, please try again")
+                    print("\nYou did not enter a valid response, please try again")
                     time.sleep(0.5)
                     continue
-
 
                 try:
                     print("\nPlease enter the adjacent (cm)")
                     adj = float(input())
 
                 except ValueError:
-                    print("You didn't enter a valid response, please try again")
+                    print("You did not enter a valid response, please try again")
                     time.sleep(0.5)
                     continue
 
                 else:
                     break
-            
-                
+
+
             #Maths formula
             order = [adj, opp]
             order.sort()
@@ -272,9 +274,94 @@ def anglecalc():
 
             ans1 = (opp/adj)
 
-            ans = maths.degrees(maths.acos(ans1))
+            ans = math.degrees(math.atan(ans1))
 
-            print("The angle you are looking for is " + str(ans) + "°")
+            print("The angle you are looking for is " + str(ans) + "°\n")
+
+            playagain()
+
+
+
+
+
+def calculator():
+    print("This is a regular calculator")
+    time.sleep(0.5)
+    def add(x, y):
+        return x + y
+
+    def subtract(x, y):
+        return x - y
+
+    def multiply(x, y):
+        return x * y
+
+    def divide(x, y):
+        return x / y
+
+
+    
+    
+    print("Select operator:")
+    print("+")
+    print("-")
+    print("*")
+    print("/\n")
+
+    choice = input()
+    choicelist = ["+", "-", "*", "/"]
+    while choice not in choicelist:
+        print("Select operator:")
+        print("+")
+        print("-")
+        print("*")
+        print("/\n")
+
+        choice = input()
+        choicelist = ["+", "-", "*", "/"]
+
+    while True:        
+        try:
+            print("Please enter the first number\n")
+            num1 = int(input())
+        except ValueError:
+            print("Please enter a valid input\n")
+            continue
+
+        else:
+            break
+        
+        
+    while True:
+        try:
+            print("Please enter the second number\n")
+            num2 = int(input())
+        except ValueError:
+            print("Please enter a valid input\n")
+            continue
+
+        else:
+            break
+        
+
+    if choice == "+":
+        print(num1, "+" , num2, "=", add(num1, num2))
+
+    elif choice == "-":
+        print(num1, "-" , num2, "=", subtract(num1, num2))
+
+    elif choice == "*":
+        print(num1, "*" , num2, "=", multiply(num1, num2))
+
+    elif choice == "/":
+        print(num1, "/" , num2, "=", divide(num1, num2))
+
+    else:
+        print("Invalid input")
+
+    playagain()
+        
+    
 
 #Menu
 def menu():
@@ -285,6 +372,7 @@ def menu():
     print("| 2. Right-angle verifier       |")
     print("| 3. Remaining side calculator  |")
     print("| 4. Angle calculator           |")
+    print("| 5. Regular calculator         |")
     print("---------------------------------")
 
     choice = input()
@@ -301,7 +389,10 @@ def menu():
     elif choice == "4":
         anglecalc()
 
-    choicelist = ["1", "2", "3", "4"]
+    elif choice == "5":
+        calculator()
+
+    choicelist = ["1", "2", "3", "4", "5"]
     while choice not in choicelist:
 
         print("What would you like to run?")
@@ -310,6 +401,7 @@ def menu():
         print("| 2. Right-angle verifier       |")
         print("| 3. Remaining side calculator  |")
         print("| 4. Angle calculator           |")
+        print("| 5. Regular calculator         |")
         print("---------------------------------")
 
         choice = input()
@@ -325,6 +417,9 @@ def menu():
 
         elif choice == "4":
             anglecalc()
+
+        elif choice == "5":
+            calculator()
 
         playagain()
 
